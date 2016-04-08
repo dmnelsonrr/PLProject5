@@ -1,67 +1,106 @@
-import ply.lex as lex
-
 tokens = (
-    'NUMBER', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'EQUAL', 'ID', 
+    'WINE', 'INTEGER', 'RANK', 'CHATEAU', 'DOMAINE', 'PETRUS', 'DOM', 'OPUS', 'TENUTA',
 )
 
+literals = ['.',  ]
 
-def t_NUMBER(t):
-    r'\d+'
-    t.value = int(t.value)
-    return t
-
-def t_PLUS(t):
-    r'\+'
-    t.value = str(t.value)
-    return t
-
-def t_MINUS(t):
-    r'\-'
-    t.value = str(t.value)
-    return t
-
-def t_TIMES(t):
-    r'\*'
-    t.value = str(t.value)
-    return t
-
-def t_DIVIDE(t):
-    r'/'
-    t.value = str(t.value)
-    return t
-
-def t_EQUAL(t):
-    r'\='
-    t.value = str(t.value)
-    return t
-
-def t_ID(t):
-    r'([_AA-Za-z])'
-    t.value = str(t.value)
-    return t
-
+t_WINE = r'Wine[ -~]+$'
+t_RANK = r'Rank.*'
+t_CHATEAU = r'Chateau[ -~]+$'
+t_DOMAINE = r'Domaine[ -~]+$'
+t_PETRUS = r'Petrus[ -~]+$'
+t_DOM = r'Dom[ -~]+$'
+t_OPUS = r'Opus[ -~]+$'
+t_TENUTA = r'Tenuta[ -~]+$'
 
 def t_newline(t):
     r'\n+'
-    t.lexer.lineno += len(t.value)
+    t.lexer.lineno += t.value.count("\n")
 
+t_ignore = ' \r\n'
 
-t_ignore = ' \t'
+def t_period(t):
+    r'\.'
+    t.type = '.'
+    return t
+
+def t_INTEGER(t):
+    r'\d+'
+    try:
+        t.value = int(t.value)
+    except ValueError:
+        print("Integer value too large %d", t.value)
+        t.value = 0
+    return t
 
 def t_error(t):
     print("Illegal character '%s'" % t.value[0])
     t.lexer.skip(1)
-
+    
+import ply.lex as lex
 lexer = lex.lex()
 
-#Test
+def p_start(t):
+    ''' start : wine
+              | rank
+              | empty
+              | chateau
+              | domaine
+              | petrus
+              | dom
+              | opus
+              | tenuta
+    '''
+def p_rank(t):
+    'rank : RANK'
+    pass
 
-data = open('fileinput.txt', 'r')
+def p_empty(t):
+    'empty : '
+    pass
 
-lexer.input(data.read())
+def p_wine(t):
+    'wine : INTEGER "." WINE'
+    print (str(t[1]) + str(t[2]) + " " + str(t[3]))
+
+def p_chateau(t):
+    'chateau : INTEGER "." CHATEAU'
+    print (str(t[1]) + str(t[2]) + " " + str(t[3]))
+
+def p_domaine(t):
+    'domaine : INTEGER "." DOMAINE'
+    print (str(t[1]) + str(t[2]) + " " + str(t[3]))
+
+def p_petrus(t):
+    'petrus : INTEGER "." PETRUS'
+    print (str(t[1]) + str(t[2]) + " " + str(t[3]))
+
+def p_dom(t):
+    'dom : INTEGER "." DOM'
+    print(str(t[1]) + str(t[2]) + " " + str(t[3]))
+
+def p_opus(t):
+    'opus : INTEGER "." OPUS'
+    print (str(t[1]) + str(t[2]) + " " + str(t[3]))
+
+def p_tenuta(t):
+    'tenuta : INTEGER "." TENUTA'
+    print (str(t[1]) + str(t[2]) + " " + str(t[3]))
+    
+def p_error(t):
+    if t == None:
+        print("Syntax error at '%s'" % t)
+    else:
+        print("Syntax error at '%s'" % t.value)
+    
+import ply.yacc as yacc
+parser = yacc.yacc()
 
 while True:
-    tok = lexer.token()
-    if not tok:
+    try:
+        s = input('')
+    except EOFError:
         break
-    print(tok)
+    parser.parse(s)
+
+    

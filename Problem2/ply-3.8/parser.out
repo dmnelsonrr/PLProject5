@@ -1,0 +1,246 @@
+Created by PLY version 3.8 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> start
+Rule 1     start -> wine
+Rule 2     start -> rank
+Rule 3     start -> empty
+Rule 4     start -> chateau
+Rule 5     start -> domaine
+Rule 6     start -> petrus
+Rule 7     start -> dom
+Rule 8     start -> opus
+Rule 9     start -> tenuta
+Rule 10    rank -> RANK
+Rule 11    empty -> <empty>
+Rule 12    wine -> INTEGER . WINE
+Rule 13    chateau -> INTEGER . CHATEAU
+Rule 14    domaine -> INTEGER . DOMAINE
+Rule 15    petrus -> INTEGER . PETRUS
+Rule 16    dom -> INTEGER . DOM
+Rule 17    opus -> INTEGER . OPUS
+Rule 18    tenuta -> INTEGER . TENUTA
+
+Terminals, with rules where they appear
+
+.                    : 12 13 14 15 16 17 18
+CHATEAU              : 13
+DOM                  : 16
+DOMAINE              : 14
+INTEGER              : 12 13 14 15 16 17 18
+OPUS                 : 17
+PETRUS               : 15
+RANK                 : 10
+TENUTA               : 18
+WINE                 : 12
+error                : 
+
+Nonterminals, with rules where they appear
+
+chateau              : 4
+dom                  : 7
+domaine              : 5
+empty                : 3
+opus                 : 8
+petrus               : 6
+rank                 : 2
+start                : 0
+tenuta               : 9
+wine                 : 1
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . start
+    (1) start -> . wine
+    (2) start -> . rank
+    (3) start -> . empty
+    (4) start -> . chateau
+    (5) start -> . domaine
+    (6) start -> . petrus
+    (7) start -> . dom
+    (8) start -> . opus
+    (9) start -> . tenuta
+    (12) wine -> . INTEGER . WINE
+    (10) rank -> . RANK
+    (11) empty -> .
+    (13) chateau -> . INTEGER . CHATEAU
+    (14) domaine -> . INTEGER . DOMAINE
+    (15) petrus -> . INTEGER . PETRUS
+    (16) dom -> . INTEGER . DOM
+    (17) opus -> . INTEGER . OPUS
+    (18) tenuta -> . INTEGER . TENUTA
+
+    INTEGER         shift and go to state 2
+    RANK            shift and go to state 3
+    $end            reduce using rule 11 (empty -> .)
+
+    empty                          shift and go to state 8
+    opus                           shift and go to state 9
+    rank                           shift and go to state 4
+    dom                            shift and go to state 11
+    wine                           shift and go to state 10
+    petrus                         shift and go to state 1
+    start                          shift and go to state 6
+    tenuta                         shift and go to state 5
+    chateau                        shift and go to state 12
+    domaine                        shift and go to state 7
+
+state 1
+
+    (6) start -> petrus .
+
+    $end            reduce using rule 6 (start -> petrus .)
+
+
+state 2
+
+    (12) wine -> INTEGER . . WINE
+    (13) chateau -> INTEGER . . CHATEAU
+    (14) domaine -> INTEGER . . DOMAINE
+    (15) petrus -> INTEGER . . PETRUS
+    (16) dom -> INTEGER . . DOM
+    (17) opus -> INTEGER . . OPUS
+    (18) tenuta -> INTEGER . . TENUTA
+
+    .               shift and go to state 13
+
+
+state 3
+
+    (10) rank -> RANK .
+
+    $end            reduce using rule 10 (rank -> RANK .)
+
+
+state 4
+
+    (2) start -> rank .
+
+    $end            reduce using rule 2 (start -> rank .)
+
+
+state 5
+
+    (9) start -> tenuta .
+
+    $end            reduce using rule 9 (start -> tenuta .)
+
+
+state 6
+
+    (0) S' -> start .
+
+
+
+state 7
+
+    (5) start -> domaine .
+
+    $end            reduce using rule 5 (start -> domaine .)
+
+
+state 8
+
+    (3) start -> empty .
+
+    $end            reduce using rule 3 (start -> empty .)
+
+
+state 9
+
+    (8) start -> opus .
+
+    $end            reduce using rule 8 (start -> opus .)
+
+
+state 10
+
+    (1) start -> wine .
+
+    $end            reduce using rule 1 (start -> wine .)
+
+
+state 11
+
+    (7) start -> dom .
+
+    $end            reduce using rule 7 (start -> dom .)
+
+
+state 12
+
+    (4) start -> chateau .
+
+    $end            reduce using rule 4 (start -> chateau .)
+
+
+state 13
+
+    (12) wine -> INTEGER . . WINE
+    (13) chateau -> INTEGER . . CHATEAU
+    (14) domaine -> INTEGER . . DOMAINE
+    (15) petrus -> INTEGER . . PETRUS
+    (16) dom -> INTEGER . . DOM
+    (17) opus -> INTEGER . . OPUS
+    (18) tenuta -> INTEGER . . TENUTA
+
+    WINE            shift and go to state 15
+    CHATEAU         shift and go to state 16
+    DOMAINE         shift and go to state 18
+    PETRUS          shift and go to state 20
+    DOM             shift and go to state 14
+    OPUS            shift and go to state 19
+    TENUTA          shift and go to state 17
+
+
+state 14
+
+    (16) dom -> INTEGER . DOM .
+
+    $end            reduce using rule 16 (dom -> INTEGER . DOM .)
+
+
+state 15
+
+    (12) wine -> INTEGER . WINE .
+
+    $end            reduce using rule 12 (wine -> INTEGER . WINE .)
+
+
+state 16
+
+    (13) chateau -> INTEGER . CHATEAU .
+
+    $end            reduce using rule 13 (chateau -> INTEGER . CHATEAU .)
+
+
+state 17
+
+    (18) tenuta -> INTEGER . TENUTA .
+
+    $end            reduce using rule 18 (tenuta -> INTEGER . TENUTA .)
+
+
+state 18
+
+    (14) domaine -> INTEGER . DOMAINE .
+
+    $end            reduce using rule 14 (domaine -> INTEGER . DOMAINE .)
+
+
+state 19
+
+    (17) opus -> INTEGER . OPUS .
+
+    $end            reduce using rule 17 (opus -> INTEGER . OPUS .)
+
+
+state 20
+
+    (15) petrus -> INTEGER . PETRUS .
+
+    $end            reduce using rule 15 (petrus -> INTEGER . PETRUS .)
+

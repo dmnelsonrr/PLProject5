@@ -1,0 +1,23 @@
+Rank Wine Name                                    Searches
+
+1.Wine Chateau Mouton Rothschild, Pauillac, France 74,014
+2.Domaine Barons de Rothschild Chateau Lafite Rothschild, Pauillac, France 64,589
+3.Chateau Margaux, Margaux, France 53,240
+4.Petrus, Pomerol, France 51,253
+5.Chateau Latour, Pauillac, France 49,630
+6.Dom Perignon Brut, Champagne, France 44,554
+7.Chateau Haut-Brion, Pessac-Leognan, France 37,184
+8.Chateau d'Yquem, Sauternes, France 33,867
+9.Domaine de la Romanee-Conti Romanee-Conti Grand Cru, Cote de Nuits, France 31,476
+10.Opus One, Napa Valley, USA 29,933
+11.Chateau Lynch-Bages, Pauillac, France 28,689
+12.Tenuta San Guido Sassicaia Bolgheri, Tuscany, Italy 26,520
+13.Chateau Cheval Blanc, Saint-Emilion Grand Cru, France 25,772
+14.Chateau Pontet-Canet, Pauillac, France 22,193
+15.Chateau Montrose, Saint-Estephe, France 21,774
+16.Chateau Cos d'Estournel, Saint-Estephe, France 21,381
+17.Chateau Leoville-Las Cases 'Grand Vin de Leoville du Marquis de Las Cases', Saint-Julien, France 20,318
+18.Chateau Pichon Longueville Comtesse de Lalande, Pauillac, France 19,793
+19.Domaine de la Romanee-Conti La Tache Grand Cru Monopole, Cote de Nuits, France 19,428
+20.Chateau Palmer, Margaux, France 19,048
+
